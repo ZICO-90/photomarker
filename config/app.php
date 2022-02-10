@@ -119,6 +119,11 @@ return [
     |
     */
 
+    'available_locales' => [
+        'English' => 'en',
+        'اللغة العربية' => 'ar',
+      ],
+
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',

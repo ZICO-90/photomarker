@@ -79,7 +79,7 @@ class ContactController extends Controller
          }
          catch(\Exception $ex)
          {
-            dd('iam here  Exception') ;
+           
             DB::rollback();
             return redirect()->back()->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
          }
