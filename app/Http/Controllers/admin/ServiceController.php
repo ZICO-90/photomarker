@@ -255,7 +255,7 @@ class ServiceController extends Controller
             
        return view('admin.services.details',compact('service'));
 
-    } #-- end delete
+    } #-- end deleteDetails
 
     
 
