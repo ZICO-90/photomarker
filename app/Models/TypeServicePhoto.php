@@ -16,12 +16,9 @@ class TypeServicePhoto extends Model
         
     ];
 
-    public function Service()
-    {
-        return belongsTo(Service::class , 'services_id','id');
-    }
+ 
 
-    public function contact_order()
+    public function contact_orders()
     {
         return $this->hasMany(ContactOrder::class,'type_service_photos_id','id');
     }

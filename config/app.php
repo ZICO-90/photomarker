@@ -124,6 +124,28 @@ return [
         'اللغة العربية' => 'ar',
       ],
 
+      'social_media' => [
+        'facebook' => 'facebook',
+        'twitter' => 'twitter',
+        'youtube' => 'youtube',
+        'vimeo' => 'vimeo',
+        'instagram' => 'instagram',
+        'pinterest' => 'pinterest',
+        'behance' => 'behance',
+  
+      ],
+
+      'regex_social_media' => [
+        'facebook' => 'regex:/^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(\.\?)?]/',
+        'twitter' => 'regex:/^(https?:\/\/)?(www\.)?twitter.com\/[a-zA-Z0-9(\.\?)?]/',
+        'youtube' => 'regex:/^(https?:\/\/)?(www\.)?youtube.com\/[a-zA-Z0-9(\.\?)?]/',
+        'vimeo' => 'regex:/^(https?:\/\/)?(www\.)?vimeo.com\/[a-zA-Z0-9(\.\?)?]/',
+        'instagram' => 'regex:/^(https?:\/\/)?(www\.)?instagram.com\/[a-zA-Z0-9(\.\?)?]/',
+        'pinterest' => 'regex:/^(https?:\/\/)?(www\.)?pinterest.com\/[a-zA-Z0-9(\.\?)?]/',
+        'behance' => 'regex:/^(https?:\/\/)?(www\.)?behance.net\/[a-zA-Z0-9(\.\?)?]/',
+  
+      ],
+
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',

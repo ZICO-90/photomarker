@@ -19,19 +19,21 @@ class ContactOrder extends Model
 
     public function contact()
     {
-        return belongsTo(Contact::class , 'contact_id','id');
+        return $this->belongsTo(Contact::class , 'contact_id','id');
     }
 
-    public function Type_Service()
+    public function TypeService()
     {
-        return belongsTo(TypeService::class , 'type_service_id','id');
+        return $this->belongsTo(TypeService::class , 'type_service_id','id');
     }
 
-    public function Service_Photo()
+    public function ServicePhoto()
     {
-        return belongsTo(TypeServicePhoto::class , 'type_service_photos_id','id');
+        return $this->belongsTo(TypeServicePhoto::class , 'type_service_photos_id','id');
     }
 
+
+  
 
 
 }

@@ -23,6 +23,7 @@
   <script src="/manage/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- datepicker -->
   <script src="/manage/plugins/datepicker/bootstrap-datepicker.js"></script>
+  <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
   <!-- Bootstrap WYSIHTML5 -->
   <script src="/manage/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   <!-- Slimscroll -->

@@ -33,13 +33,13 @@
 
         <td>
           <li> {{$item->Type_services->count()}}</li>
-          <li> <a href="{{route('admin.services.edit',$item->id)}}">عرض </a> </li>
+          
       
         </td>
 
         <td>
           <li> {{$item->Service_Photoes->count()}}</li>
-          <li> <a href="{{route('admin.services.edit',$item->id)}}"> عرض </a> </li>
+          <
      
         </td>
         

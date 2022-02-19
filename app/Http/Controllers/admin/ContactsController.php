@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Contact;
+
+class ContactsController extends Controller
+{
+    public function index()
+    {
+        $Contacts =  Contact::with('contact_orders' ,'contact_orders.TypeService','contact_orders.ServicePhoto')->get();
+  
+        return view('admin.contacts.index',compact('Contacts')) ;
+    }
+
+    public function details($id)
+    {
+     
+        $Contacts =  Contact::with('contact_orders' ,'contact_orders.TypeService','contact_orders.ServicePhoto')->findorFail($id);
+      
+
+        return view('admin.contacts.details',compact('Contacts')) ;
+
+    }
+
+
+    
+
+    public function delete($id)
+    {
+        $Contact =  Contact::findorFail($id);
+
+        if($Contact->delete())
+        return redirect()->back()->with(['success'=> 'تم حذف العنصر بنجاح']);
+        else
+        return redirect()->back()->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+
+    } #-- end delete
+
+
+
+}

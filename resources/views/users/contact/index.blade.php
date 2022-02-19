@@ -213,12 +213,14 @@
 
 
             <div class="col-xs-12 col-sm-4">
+                @isset($index_setting)
                 <div class="box black-box text-center">
                     <h3 class="main-heading">تفاصيل الاتصال</h3>
 
-                    <p><i class="fa fa-envelope-o right-fa"></i> Info@pmstu.com</p>
-                    <p><i class="fa fa-phone right-fa"></i> 0123456789</p>
+                    <p><i class="fa fa-envelope-o right-fa"></i> {{$index_setting->email}}</p>
+                    <p><i class="fa fa-phone right-fa"></i> {{$index_setting->phone}}</p>
                 </div>
+                @endisset
                 <div class="box black-box text-center">
                     <h3 class="main-heading">إشترك معنا</h3>
 

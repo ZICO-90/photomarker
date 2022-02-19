@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html {{App::getLocale() == 'ar'? 'ar' : 'en'}} dir="{{App::getLocale() == 'ar'? 'rtl' : 'ltr'}}>
+<html {{App::getLocale() == 'ar'? 'ar' : 'en'}}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="HandheldFriendly" content="true">
     <title>Photo Maker</title>
-    @include('users.includes.css');
+    @include('users.includes.css')
     @yield('css')
-    
+
 </head>
 
 <body>
+    @include('users.includes.navbar')
 
+
+    @if(url()->current() != url('/'))
     <div class="fixed-bg">
         <img src="/users/images/1.jpg">
     </div>
+    @endif
 <!--===============================
     NAV
 ===================================-->
 
-@include('users.includes.navbar');
+
 
 <!--===============================
     SLIDER
@@ -34,7 +38,7 @@
     <div class="item"><img src="/users/images/3.jpg" alt="..."></div>
 
 </div>
-
+{
 <div class="hidden">
     <a class="btn owl-btn next"><span class="fa fa-angle-right"></span></a>
     <a class="btn owl-btn prev"><span class="fa fa-angle-left"></span></a>

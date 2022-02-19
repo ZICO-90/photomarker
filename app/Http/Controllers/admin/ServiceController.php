@@ -28,10 +28,6 @@ class ServiceController extends Controller
 
     public function CreateStore(Request $re ,$id = null)
     {
-
-
-
-
         $rules = [
             'photo_service' => 'required|array|min:1|max:10',
             
@@ -42,9 +38,6 @@ class ServiceController extends Controller
             'type_service.*' => 'required|string|min:3|max:120',
             'name' => 'required|string|min:3|max:120',
         ];
-
-        
-        
       
         $message = [
             'required' => 'هذا الحقل مطلوب',
@@ -57,7 +50,7 @@ class ServiceController extends Controller
         ];
 
        
-   $date =  $this->validate($re,$rules,$message) ;
+   $date =  $this->validate($re,$rules,$message);
   
  
         $type_service = [];
@@ -129,7 +122,7 @@ class ServiceController extends Controller
         }
         catch(\Exception $ex)
         {
-            dd($ex) ;
+            
             DB::rollback();
             return redirect()->back()->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
@@ -139,9 +132,9 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        $service =  Service::with('Type_services' , 'Service_Photoes')->findorFail($id);
+         $service =  Service::with('Type_services' , 'Service_Photoes')->findorFail($id);
        
-        return view('admin.services.edit',compact('service'));
+         return view('admin.services.edit',compact('service'));
     } #-- end edit
 
     public function editUpdate(Request $re , $id)

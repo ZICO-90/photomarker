@@ -7,95 +7,19 @@
         <h1 class="main-heading">أعمالنا</h1>
 
         <div class="row">
+            @foreach($gallery as $item)
             <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/1.jpg" alt="...">
+                <a href="{{route('users.gallery.detalis' ,['id' => $item->id])}}" class="img-holder">
+                    <img src="{{asset('storage/'.$item->url)}}" alt="...">
 
                     <div class="hover-content">
-                        <h1>اسم القسم</h1>
+                        <h1>{{$item->title}}</h1>
                     </div>
                 </a>
             </div>
+            @endforeach
 
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/2.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/3.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/1.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/2.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/3.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/1.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/2.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-4 no-padding">
-                <a href="category.html" class="img-holder">
-                    <img src="/users/images/3.jpg" alt="...">
-
-                    <div class="hover-content">
-                        <h1>اسم القسم</h1>
-                    </div>
-                </a>
-            </div>
+       
         </div>
 
     </div>

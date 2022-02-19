@@ -71,6 +71,8 @@ Route::group(['prefix' => 'home' , 'as' => 'users.'],function(){
              Route::group(['prefix' => 'gallery' , 'as'=> 'gallery.'], function(){
         
                 Route::get('/' ,[GalleryController::class,'index']) ->name('index');
+                Route::get('/detalis/{id}' ,[GalleryController::class,'detalis']) ->name('detalis');
+
             });#-- end child about me
             
             
