@@ -125,7 +125,7 @@ class ManagementsConstroller extends Controller
        $admin_update->update($data);
 
 
-       return redirect()->route('admin.managements.index')->with(['success' => "تم الاضافة بنجاح"]);
+       return redirect()->route('admin.managements.index')->with(['success' => "تم التعديل بنجاح"]);
 
 
     } #-- end update
