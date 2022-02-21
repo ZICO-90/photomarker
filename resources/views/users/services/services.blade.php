@@ -10,8 +10,14 @@
             @foreach($site_service as $item)
                 <div class="border-bottom">
                     <h1><strong> {{$item->title}}</strong></h1>
-    
+                    @if(app()->getLocale() == "ar")
                     {!! $item->body !!}
+                    @else
+                    {!! $item->body_en !!}
+                    @endif
+                   
+
+                   
                    
                 </div>
     

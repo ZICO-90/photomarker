@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SiteService extends Model
 {
     use HasFactory;
-    protected $fillable = ['title' , 'body'];
+    protected $fillable = ['title' , 'body' , 'body_en'];
 
 
 

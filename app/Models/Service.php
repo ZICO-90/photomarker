@@ -18,10 +18,7 @@ class Service extends Model
 
     }
 
-    public function Service_Photoes (){
-        return $this->hasMany(TypeServicePhoto::class ,'service_id','id');
-  
-      }
+   
 
   
 

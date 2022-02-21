@@ -9,14 +9,14 @@
 
 						@include('admin.includse.alerts.success')
 						@include('admin.includse.alerts.errors')
-					@foreach( $photos->photos as $item)
+					@foreach( $Sliders as $item)
                         <div class="col-md-4">
 					
 							<div class="panel panel-flat">
 							
 								<div class="panel-body">
 									<div class="thumb content-group">
-										<img src="{{asset('storage/'.$item->url)}}" alt="" class="img-responsive">
+										<img src="{{asset('storage/'.$item->url_img)}}" alt="" class="img-responsive">
                                        
 										<div class="caption-overflow">
 											<span>
@@ -32,9 +32,21 @@
 									<div class="heading-elements not-collapsible">
 										<ul class="list-inline list-inline-separate heading-text text-muted">
 					
-								         	<li><a href="{{route('admin.photos.delete',$item-> id)}}" class="btn btn-danger">حذف </a>  </li>
+								         	<li><a href="{{route('admin.sliders.delete',$item-> id)}}" class="btn btn-danger">حذف </a>  </li>
+								         	<li>
+												
+												 <a href="{{ route('admin.sliders.status' , ['id' => $item->id , 'bool' => $item-> active ])}}" 
+													class="btn btn-danger">
+													@if($item-> active == 1)
+													نشط
+													@else
+													غير نشط
+													@endif
+												</a> 
+												</li>
 
-											 <form id="form-update-{{$item-> id}}" action="{{route('admin.photos.details.update',$item-> id)}}" method="POST" enctype="multipart/form-data">
+											 <form id="form-update-{{$item-> id}}" action="{{route('admin.sliders.update',$item-> id)}}" method="POST" enctype="multipart/form-data">
+												{{method_field('put')}}
 												@csrf
 
 												<div class="panel-heading">

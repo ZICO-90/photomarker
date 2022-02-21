@@ -10,10 +10,7 @@ class AboutMeController extends Controller
     public function index(){
       
         $Custmore = Custmore::where('active',1)->get();
-       
-    
-
         return view('users.about-me.about',compact('Custmore'));
-        //resources\views\users\about-me\about.blade.php
+       
      }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropColumnTitleServiceForTableContantOrder extends Migration
+class AddColumsForTableContacts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DropColumnTitleServiceForTableContantOrder extends Migration
      */
     public function up()
     {
-        Schema::table('contact_orders', function (Blueprint $table) {
-            $table->dropColumn('title_service');
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->json('servieces') ;
         });
     }
 
@@ -25,8 +25,8 @@ class DropColumnTitleServiceForTableContantOrder extends Migration
      */
     public function down()
     {
-        Schema::table('contact_orders', function (Blueprint $table) {
-            $table->string('title_service');
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->dropColumn('servieces');
         });
     }
 }

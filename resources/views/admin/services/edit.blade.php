@@ -37,22 +37,6 @@
         </div>
       </div>
 
-      <div class="box box-success">
-        <div class="box-header with-border">
-          <h3 class="box-title">    الصور نوع البيانات </h3>
-        </div>
-
-        <div class="box-body">
-          @foreach($service->Service_Photoes as $item)
-          <input class="form-control input-lg" type="hidden"  value="{{$item->id}}" name="photo_service_ids[]">
-
-          <input class="form-control input-lg" type="text" value="{{$item->type_photo}}" name="photo_service[]" placeholder="داخل نوع البيانات">
-          <br>
-          @endforeach
-          
-        </div>
-      </div>
-
       <div class="box-footer">
         <button type="submit" class="btn btn-primary">حديث </button>
       </div>

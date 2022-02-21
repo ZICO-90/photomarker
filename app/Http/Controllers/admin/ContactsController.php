@@ -10,15 +10,15 @@ class ContactsController extends Controller
 {
     public function index()
     {
-        $Contacts =  Contact::with('contact_orders' ,'contact_orders.TypeService','contact_orders.ServicePhoto')->get();
-  
+        $Contacts =  Contact::get();
+  //dd(count($Contacts[2]->servieces));
         return view('admin.contacts.index',compact('Contacts')) ;
     }
 
     public function details($id)
     {
      
-        $Contacts =  Contact::with('contact_orders' ,'contact_orders.TypeService','contact_orders.ServicePhoto')->findorFail($id);
+        $Contacts =  Contact::findorFail($id);
       
 
         return view('admin.contacts.details',compact('Contacts')) ;

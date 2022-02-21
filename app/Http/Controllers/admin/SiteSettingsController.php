@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Storage;
+use File;
 class SiteSettingsController extends Controller
 {
     public function index()
@@ -37,6 +38,7 @@ class SiteSettingsController extends Controller
         
         $data = $this->validate($re , $Rulse) ;
        
+        dd($data );
         $file_path = Storage::disk('public')->putFile('images/site-setting',$data['file']);
 
    $insert =  SiteSetting::create([
@@ -84,6 +86,9 @@ class SiteSettingsController extends Controller
 
     public function update(Request $request ,$id)
     {
+
+
+
         $Rulse = [
             'title'=>'required|string|min:3',
             'phone'=>'required|regex:/(01)[0-9]{9}/',

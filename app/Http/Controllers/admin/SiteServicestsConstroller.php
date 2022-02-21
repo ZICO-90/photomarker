@@ -26,13 +26,14 @@ class SiteServicestsConstroller extends Controller
                  $rules = [
                           'title' => 'required|string|min:3|max:120',
                           'body' => 'required|min:5',
+                          'body_en' => 'required|min:5',
                          ];
                 
                  $message = [
                              'required' => 'هذا الحقل مطلوب',
                              'title.min' => 'يجب ان يكون ثلاث احرف علي الاقل',
                              'title.max' => 'يجب ان لا يزيد عن 120 حرفا',
-                             'body.min' => 'يجب ان يكون خمس احرف علي الاقل',
+                             'min' => 'يجب ان يكون خمس احرف علي الاقل',
                              ];
 
        
@@ -42,7 +43,7 @@ class SiteServicestsConstroller extends Controller
              
                 try
                 {           
-                   SiteService::Create(['title' => $data['title'] , 'body' => $data['body'] ]);
+                   SiteService::Create(['title' => $data['title'] , 'body' => $data['body']  , 'body_en' =>  $data['body_en']]);
   
                    return  redirect()->route('admin.site.services.index')->with(['success' =>'تم الحفظ بنجاح']); 
 
@@ -68,14 +69,14 @@ class SiteServicestsConstroller extends Controller
                     
             'title' => 'required|string|min:3|max:120',
             'body' => 'required|min:5',
-           
+            'body_en' => 'required|min:5',
         ];
        
         $message = [
             'required' => 'هذا الحقل مطلوب',
             'title.min' => 'يجب ان يكون ثلاث احرف علي الاقل',
             'title.max' => 'يجب ان لا يزيد عن 120 حرفا',
-          
+            'min' => 'يجب ان يكون خمس احرف علي الاقل',
         ];
 
         $data =  $this->validate($re,$rules,$message);
@@ -84,6 +85,7 @@ class SiteServicestsConstroller extends Controller
 
         $site->title = $data['title'] ;
         $site->body = $data['body'] ;
+        $site->body_en = $data['body_en'] ;
 
         $site->save();
 

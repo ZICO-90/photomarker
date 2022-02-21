@@ -135,6 +135,17 @@ return [
   
       ],
 
+      'social_media' => [
+        'facebook' => 'facebook',
+        'twitter' => 'twitter',
+        'youtube' => 'youtube',
+        'vimeo' => 'vimeo',
+        'instagram' => 'instagram',
+        'pinterest' => 'pinterest',
+        'behance' => 'behance',
+  
+      ],
+
       'regex_social_media' => [
         'facebook' => 'regex:/^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(\.\?)?]/',
         'twitter' => 'regex:/^(https?:\/\/)?(www\.)?twitter.com\/[a-zA-Z0-9(\.\?)?]/',

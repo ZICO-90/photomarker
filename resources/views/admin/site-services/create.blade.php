@@ -21,6 +21,8 @@
         <span class="text-danger">{{$message}}</span>
         @enderror
     </div>
+
+    
     
     <div class="box-body pad">
         <textarea class="textarea" name="body"   id="editor1" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
@@ -29,6 +31,14 @@
         @enderror
    
     </div>
+
+    <div class="box-body pad">
+      <textarea class="textarea" name="body_en"   id="editor1" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+      @error('body_en')
+      <span class="text-danger">{{$message}}</span>
+      @enderror
+ 
+  </div>
 
 
     <div class="text-right">

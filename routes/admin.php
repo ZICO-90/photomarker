@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\CustmoresController;
 use App\Http\Controllers\admin\SiteSettingsController;
 use App\Http\Controllers\admin\ManagementsConstroller;
 use App\Http\Controllers\admin\SiteServicestsConstroller;
+use App\Http\Controllers\admin\SlidersController;
 
 
 use App\Http\Controllers\admin\auth\AdminLoginController;
@@ -49,7 +50,7 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.' , 'middleware' =>'auth.admi
         Route::get('/delete/{id}',[ServiceController::class,'delete'])->name('delete');
         Route::get('/delete/{id}',[ServiceController::class,'delete'])->name('delete');
         Route::get('/details/{id}',[ServiceController::class,'details'])->name('details');
-        Route::get('/delete-details/{typeId}/{photoId}',[ServiceController::class,'deleteDetails'])->name('delete.details');
+        Route::get('/delete-details/{typeId}',[ServiceController::class,'deleteDetails'])->name('delete.details');
 
     }); #-- end services 
 
@@ -61,6 +62,20 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.' , 'middleware' =>'auth.admi
         Route::get('/delete/{id}',[ContactsController::class,'delete'])->name('delete');
 
      }); #--end contacts
+
+
+       #--begin sliders 
+    Route::group(['prefix' => 'sliders' , 'as'=> 'sliders.'], function(){
+        
+        Route::get('/',[SlidersController::class,'index'])->name('index');
+        Route::get('/create',[SlidersController::class,'create'])->name('create');
+        Route::post('/store',[SlidersController::class,'store'])->name('store');
+        Route::put('/update/{id}',[SlidersController::class,'update'])->name('update');
+        Route::get('/delete/{id}',[SlidersController::class,'delete'])->name('delete');
+        Route::get('/status/{id}/{bool}',[SlidersController::class,'status'])->name('status');
+
+
+     }); #--end sliders
 
 
      #--begin abouts

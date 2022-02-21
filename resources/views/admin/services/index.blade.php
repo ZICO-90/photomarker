@@ -19,7 +19,7 @@
         <th>اسم الخدمه</th>
         <th>التاريخ</th>
         <th>عدد البيانات</th>
-        <th>عدد الصور</th>
+        
         <th>العمليات</th>
       
       </tr>
@@ -37,12 +37,6 @@
       
         </td>
 
-        <td>
-          <li> {{$item->Service_Photoes->count()}}</li>
-          <
-     
-        </td>
-        
         <td>
           <a href="{{route('admin.services.edit',$item->id)}}">تعديل</a>
           |

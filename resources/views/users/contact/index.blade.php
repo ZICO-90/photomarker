@@ -147,7 +147,7 @@
                         <div class="row">
                             @if(isset($service)) <!--# begin if service---->
                           
-                            @foreach($service  as $item)   <!--# begin foreach service---->
+                            @foreach($service  as $index => $item)   <!--# begin foreach service---->
                             <div class="col-xs-12 col-sm-6 col-md-4">
 
                                 <div class="box black-box margin-bottom">
@@ -163,7 +163,7 @@
                                     <div class="check-open">
                                         @foreach($item->Type_services  as  $item_type) <!--# begin foreach Type_services ---->
                                         <label class="checkbox-holder">
-                                            <input type="checkbox"  name="Type_services[]"  value="{{$item_type->id}}">
+                                            <input type="checkbox"  name="Type_services[]"  value="{{$item_type->type_name}}">
                                             <span class="checkbox-icon"></span>
                                             <span>{{$item_type->type_name}}</span>
                                         </label>
@@ -171,23 +171,14 @@
                                        
     
                                         <label class="checkbox-holder">
-                                            <input type="checkbox">
+                                            <input type="checkbox" name="other[{{$index}}]" value="{{$index}}" >
                                             <span class="checkbox-icon"></span>
                                             <span> (يرجى التحديد )أخرى </span>
                                         </label>
     
-                                        <input type="text" placeholder="">
+                                        <input type="text" name="other_value[{{$index}}]" placeholder="">
                                         
-                                        <label>عدد الصور</label>
-                                        <input type="number" placeholder="عدد الصور">
-
-                                        @foreach($item->Service_Photoes  as $item_Photoes) <!--# begin foreach Service_Photoes ---->
-                                        <label class="checkbox-holder">
-                                            <input type="checkbox" name="Service_Photoes[]" value="{{$item_Photoes->id}}">
-                                            <span class="checkbox-icon"></span>
-                                            <span>{{$item_Photoes->type_photo}}</span>
-                                        </label>
-                                        @endforeach <!--# end foreach Service_Photoes ---->
+                                       
                                   
     
                                     </div>

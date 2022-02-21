@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         });
         
         $social_media = \App\Models\SiteSetting::where('active' ,1)->first();
-
+      
         view()->composer('users.includes.footer', function ($view) use($social_media) {
           
           
@@ -45,13 +45,24 @@ class AppServiceProvider extends ServiceProvider
       
         view()->composer('users.about-me.about', function ($view) use($social_media) {
           
-            $view->with('about_setting', $social_media->get(['title' , 'url_pdf'])[0] );
+            $view->with('about_setting', $social_media );
         });
        
         view()->composer('users.contact.index', function ($view) use($social_media) {
           
-            $view->with('index_setting', $social_media->get(['email' , 'phone'])[0] );
+            $view->with('index_setting', $social_media );
         });
 
+
+
+
+        # sliders 
+
+        $Sliders = \App\Models\Slider::where('active' ,1)->get();
+        
+        view()->composer('users.layouts.layout', function ($view) use($Sliders) {
+          
+            $view->with('Sliders', $Sliders);
+        });
     }
 }

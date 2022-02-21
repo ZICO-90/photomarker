@@ -32,6 +32,15 @@
  
   </div>
 
+  <div class="box-body pad">
+    <textarea class="textarea" name="body_en"   id="editor1" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!!$site_service->body_en!!}</textarea>
+    @error('body_en')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+
+</div>
+
+
 
   <div class="text-right">
       <button type="submit" class="btn btn-primary">Submit <i class="icon-arrow-left13 position-right"></i></button>

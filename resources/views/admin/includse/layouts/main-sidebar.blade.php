@@ -80,7 +80,7 @@
             <span class="label label-primary pull-left">{{App\Models\SiteSetting::count()}}</span>
           </a>
           <ul class="treeview-menu">
-            <li  class="{{ url()->current() == route('admin.site.settings.create') ? 'active' : '' }}" ><a href="{{route('admin.site.settings.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
+            <li hidden class="{{ url()->current() == route('admin.site.settings.create') ? 'active' : '' }}" ><a href="{{route('admin.site.settings.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
             <li  class="{{ url()->current() == route('admin.site.settings.index') ? 'active' : '' }}" ><a href="{{route('admin.site.settings.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
           </ul>
         </li>
@@ -92,7 +92,7 @@
             <span class="label label-primary pull-left">{{App\Models\SiteService::count()}}</span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ url()->current() == route('admin.site.services.create') ? 'active' : '' }}" ><a href="{{route('admin.site.services.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
+            <li   class="{{ url()->current() == route('admin.site.services.create') ? 'active' : '' }}"><a href="{{route('admin.site.services.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
             <li class="{{ url()->current() == route('admin.site.services.index') ? 'active' : '' }}" ><a href="{{route('admin.site.services.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
           </ul>
         </li>
@@ -106,6 +106,18 @@
           <ul class="treeview-menu">
             <li class="{{ url()->current() == route('admin.managements.create') ? 'active' : '' }}" ><a href="{{route('admin.managements.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
             <li class="{{ url()->current() == route('admin.managements.index') ? 'active' : '' }}" ><a href="{{route('admin.managements.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview {{ url()->current() == route('admin.sliders.create')  ? 'active' : ''  }} {{ url()->current() == route('admin.sliders.index')  ? 'active' : ''  }}">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>صور slider</span>
+            <span class="label label-primary pull-left">{{App\Models\Admin::count()}}</span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ url()->current() == route('admin.sliders.create') ? 'active' : '' }}" ><a href="{{route('admin.sliders.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
+            <li class="{{ url()->current() == route('admin.sliders.index') ? 'active' : '' }}" ><a href="{{route('admin.sliders.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
           </ul>
         </li>
 

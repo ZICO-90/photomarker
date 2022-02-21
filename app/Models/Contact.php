@@ -15,17 +15,11 @@ class Contact extends Model
         'number_call',
         'email',
         'file_url',
+        'servieces',
        
         
     ];
-
-    public function contact_orders()
-    {
-        return $this->hasMany(ContactOrder::class,'contact_id','id');
-    }
-
-    
-
+    protected $casts = ['servieces' => 'json'];
 
 
 }

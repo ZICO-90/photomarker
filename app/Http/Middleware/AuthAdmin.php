@@ -16,10 +16,7 @@ class AuthAdmin extends Middleware
     {
         if (!$request->expectsJson()) {
         
-                return route('admin.login');
-            
-               
-           
+            return route('admin.login');
         }
     }
 }

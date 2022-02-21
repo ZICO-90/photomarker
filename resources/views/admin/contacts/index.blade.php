@@ -20,11 +20,11 @@
         <th>نوع النشاط</th>
         <th>التليفون</th>
         <th>الايميل</th>
-        <th>عدد البيانات</th>
+        <th>طلبات العميل</th>
         <th>العمليات</th>
       
       </tr>
-      @foreach ($Contacts as $item)
+      @foreach ($Contacts as  $item)
           
       
       <tr>
@@ -35,30 +35,16 @@
        
 
         <td>
-                      @php
-                            $ConterOne = 0 ;
-                            $ConterTwo = 0;
-                      @endphp
 
-          
-              @foreach($item->contact_orders  as  $orders )  
-                    @if($orders->TypeService != null )
-                
-                       @php
-                       $ConterOne++
-                       @endphp
-                    @endif
-    
-                   @if($orders->ServicePhoto != null )
+         
+          @if(!empty($item->servieces))
 
-                      @php
-                      $ConterTwo++
-                      @endphp
-      
-                   @endif
-              @endforeach
-          <li> بيانات {{$ConterOne}}</li>
-          <li> صور  {{$ConterTwo}} </li>          
+          @for($index = 0 ; $index < count($item->servieces) ;  $index++)
+          <li>{{$item->servieces[$index]}}</li>
+          @endfor
+
+          @endif
+                  
         </td>              
         <td>
          

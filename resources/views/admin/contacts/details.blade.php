@@ -78,6 +78,25 @@
                           <li> {{$Contacts-> created_at}}</li>
                           </td>
                       </tr>
+
+                      <tr>
+                        <td>
+                            <strong>
+                               
+                               طلبات العميل
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @if(!empty($Contacts->servieces))
+        
+                            @for($index = 0 ; $index < count($Contacts->servieces) ;  $index++)
+                            <li>{{$Contacts->servieces[$index]}}</li>
+                  
+                            @endfor
+                  
+                            @endif
+                        </td>
+                    </tr>
                  
                   </tbody>
               </table>
@@ -88,68 +107,5 @@
   </div>
 </div>
 
-
-<!----------------------->
-
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">البيانات </h3>
-    <div class="box-tools">
-   
-    </div>
-  </div><!-- /.box-header -->
-  <div class="box-body table-responsive no-padding">
-      <table class="table table-hover">
-        <tbody>
-             <tr>
-                   <th>الاسم</th>
-                   <th>التاريخ</th>
-                   <th>الوقت</th>
-             </tr>
-              @foreach ($Contacts->contact_orders as $item)
-              <tr>
-                <td>{{$item->TypeService->type_name}}</td>
-                <td>{{$item->TypeService->created_at->isoFormat('YYYY-MM-DD')}}</td>
-                <td>{{$item->TypeService->created_at->isoFormat('h:m')}}</td>
-                      
-              </tr>
-              @endforeach
-        
-        <tbody>
-      <table>
-  </div> <!-- /.box-body -->
-
-<!--*********************************************************************-->
-  <div class="box-header">
-    <h3 class="box-title">الصور</h3>
-    <div class="box-tools">
-   
-    </div>
-  </div><!-- /.box-header -->
-  <div class="box-body table-responsive no-padding">
-    <table class="table table-hover">
-      <tbody>
-           <tr>
-                 <th>الاسم</th>
-                 <th>التاريخ</th>
-                 <th>الوقت</th>
-               
-           
-           </tr>
-            @foreach ($Contacts->contact_orders as $item)
-            @if($item->ServicePhoto != null)
-            <tr>
-              <td>{{$item->ServicePhoto->type_photo}}</td>
-              <td>{{$item->ServicePhoto->created_at->isoFormat('YYYY-MM-DD')}}</td>
-              <td>{{$item->ServicePhoto->created_at->isoFormat('h:m')}}</td>
-                    
-            </tr>
-            @endif
-            @endforeach
-      
-      <tbody>
-    <table>
-</div> <!-- /.box-body -->
-</div>
 
  @endsection
