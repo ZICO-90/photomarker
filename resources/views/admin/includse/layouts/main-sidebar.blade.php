@@ -121,6 +121,18 @@
           </ul>
         </li>
 
+
+        <li class="treeview {{ url()->current() == route('admin.Subscribes.index')  ? 'active' : ''  }}">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>الاشتراك</span>
+            <span class="label label-primary pull-left">{{App\Models\Admin::count()}}</span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ url()->current() == route('admin.Subscribes.index') ? 'active' : '' }}" ><a href="{{route('admin.sliders.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
+          </ul>
+        </li>
+
        
 
       

@@ -22,15 +22,14 @@ class ContactController extends Controller
 
    public function store(StoreServiceRequset $request)
    {
-    //512M
-    //max_execution_time=1800
 
-   
-       
+      if(empty($request->Type_services) ){
 
+         if(empty($request->other))
+         {
+            return redirect()->back()->with(['error' => 'اختار خدمه علي الافل']);
+         } 
        
-      if(empty($request->Type_services)){
-         return redirect()->back()->with(['error' => 'اختار خدمه علي الافل']);
       }
     
       if($request->has('FILES'))
@@ -40,22 +39,22 @@ class ContactController extends Controller
       }
     
      
-     
+    
       if($request->has('other')){
         
-        if(empty($request->other_value))
-        return redirect()->back()->with(['error' => 'اختار خدمه علي الافل']);
-
-        $photo_service = [] ;
-        for($index = 0 ; $index < count($request['Type_services']) ; $index++ )
+        $services = [] ;
+        if(!empty($request['Type_services']))
         {
-            
-          array_push($photo_service , $request['Type_services'][$index]);
+            for($index = 0 ; $index < count($request['Type_services']) ; $index++ )
+            {
+                
+              array_push($services , $request['Type_services'][$index]);
+            }
         }
 
-        array_push($photo_service , $request->other_value[$request->other[0]]);
+        array_push($services , $request->other_value[$request->other[0]]);
         
-        $request['Type_services'] = $photo_service;
+        $request['Type_services'] = $services;
       }
       
     
@@ -86,7 +85,7 @@ class ContactController extends Controller
          }
          catch(\Exception $ex)
          {
-           
+           dd($ex);
             DB::rollback();
             Storage::disk('public')->delete($request->FILES);
             return redirect()->back()->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);

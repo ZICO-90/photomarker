@@ -52,6 +52,7 @@ class DataBaseSiteSerives extends Seeder
         SiteSetting::create([ 'title' => $this->title() ,
         'email' => 'ahmedkamel@gmail.com' ,
         'phone' => '01024967006' ,
+        'active' => '1' ,
         'url_pdf' => $this->file() ,
         'social_media' => $this->socialMedia(),]);
        

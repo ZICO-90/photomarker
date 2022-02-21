@@ -8,6 +8,7 @@ use App\Http\Controllers\Users\ContactController;
 use App\Http\Controllers\Users\AboutMeController;
 use App\Http\Controllers\Users\GalleryController;
 use App\Http\Controllers\Users\ServicesController;
+use App\Http\Controllers\Users\SubscribeController;
 #-- end users  Controllers
 
 /*
@@ -65,6 +66,17 @@ Route::group(['prefix' => 'home' , 'as' => 'users.'],function(){
                 Route::get('/' ,[AboutMeController::class,'index']) ->name('index');
              
             });#-- end child about me 
+
+
+             # begin Subscribes
+            Route::group(['prefix' => 'Subscribes' , 'as'=> 'Subscribes.'], function(){
+
+               
+                Route::POST('/store' ,[SubscribeController::class,'store']) ->name('store');
+
+          
+
+           });#-- end Subscribes
         
         
              # begin-chlid-abdout-me group

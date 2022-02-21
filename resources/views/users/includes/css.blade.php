@@ -8,5 +8,4 @@
     <link rel="stylesheet" type="text/css" href="/users/css/style-ar.css">
     @else
     <link rel="stylesheet" type="text/css" href="/users/css/style-en.css">
-    <link rel="stylesheet" type="text/css" href="/users/css/style-ar.css">
     @endif

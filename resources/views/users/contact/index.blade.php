@@ -171,7 +171,7 @@
                                        
     
                                         <label class="checkbox-holder">
-                                            <input type="checkbox" name="other[{{$index}}]" value="{{$index}}" >
+                                            <input type="checkbox" name="other[]" value="{{$index}}" >
                                             <span class="checkbox-icon"></span>
                                             <span> (يرجى التحديد )أخرى </span>
                                         </label>
@@ -195,6 +195,10 @@
     
                         <label>إرفاق ملف</label>
                         <input type="file" name="FILES" placeholder="إرفاق ملف">
+                        @error('FILES')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+        
                         <div class="btn btn-white btn-block">
                             <span><input type="submit" value="إرسال"></span>
                         </div>
@@ -215,8 +219,9 @@
                 <div class="box black-box text-center">
                     <h3 class="main-heading">إشترك معنا</h3>
 
-                    <form>
-                        <input type="email" placeholder="بريدك الالكتروني">
+                    <form action="{{route('users.Subscribes.store')}}" method="POST">
+                        @csrf
+                        <input type="email" name="E-mail" placeholder="بريدك الالكتروني">
                         <div class="btn btn-white btn-block">
                             <span><input type="submit" value="إشترك معنا"></span>
                         </div>

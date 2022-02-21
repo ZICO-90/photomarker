@@ -18,6 +18,8 @@ use App\Http\Controllers\admin\auth\AdminLoginController;
 use App\Http\Controllers\admin\auth\AdminForgotPasswordLoginController;
 use App\Http\Controllers\admin\auth\AdminResetPasswordLoginController;
 
+use App\Http\Controllers\Users\SubscribeController;
+
 
 #-- begin login
 Route::get('/login',[AdminLoginController::class , 'ShowLoginForm'])->name('admin.login');
@@ -76,6 +78,14 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.' , 'middleware' =>'auth.admi
 
 
      }); #--end sliders
+
+             # begin Subscribes
+             Route::group(['prefix' => 'Subscribes' , 'as'=> 'Subscribes.'], function(){
+
+                Route::get('/' ,[SubscribeController::class,'index']) ->name('index');
+                Route::get('/delete/{id}',[SubscribeController::class,'delete'])->name('delete');
+
+           });#-- end Subscribes
 
 
      #--begin abouts

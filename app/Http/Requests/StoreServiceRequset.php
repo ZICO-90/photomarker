@@ -28,6 +28,7 @@ class StoreServiceRequset extends FormRequest
             'activity_type'=>'required|string|min:3:max:150',
             'number_call'=>'required|regex:/(01)[0-9]{9}/',
             'email'=>'required|email',
+            'FILES'=>'required',
            
 
         ];
