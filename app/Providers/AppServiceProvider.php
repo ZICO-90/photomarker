@@ -33,36 +33,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('admin.site-settings.create', function ($view) {
           
             $view->with('social_media', config('app.social_media'));
-        });
-        
-        $social_media = \App\Models\SiteSetting::where('active' ,1)->first();
-      
-        view()->composer('users.includes.footer', function ($view) use($social_media) {
-          
-          
-            $view->with('footer_setting', $social_media->social_media );
-        });
-      
-        view()->composer('users.about-me.about', function ($view) use($social_media) {
-          
-            $view->with('about_setting', $social_media );
-        });
-       
-        view()->composer('users.contact.index', function ($view) use($social_media) {
-          
-            $view->with('index_setting', $social_media );
-        });
+        });        
 
-
-
-
-        # sliders 
-
-        $Sliders = \App\Models\Slider::where('active' ,1)->get();
-        
-        view()->composer('users.layouts.layout', function ($view) use($Sliders) {
-          
-            $view->with('Sliders', $Sliders);
-        });
     }
 }

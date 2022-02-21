@@ -13,9 +13,10 @@ class ContactController extends Controller
 {
    public function index()
    {
-      $service = Service::with('Type_services' , 'Service_Photoes')->get();
-      
-      return  view('users.contact.index',compact('service'));
+      $service = Service::with('Type_services')->get();
+      $index_setting = \App\Models\SiteSetting::where('active' ,1)->first();
+
+      return  view('users.contact.index',compact('service','index_setting'));
    }
 
 

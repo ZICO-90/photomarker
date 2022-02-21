@@ -32,7 +32,10 @@
 @if(url()->current() == url('/'))
 
 <div id="owl-demo" class="owl-carousel owl-theme">
-
+@php
+         $Sliders = \App\Models\Slider::where('active' ,1)->get();
+   
+@endphp
     @isset($Sliders)
         @foreach($Sliders as $item)
         <div class="item"><img src="{{asset('storage/'.$item->url_img )}}" alt="..."></div>
