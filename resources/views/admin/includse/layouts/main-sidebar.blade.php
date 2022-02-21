@@ -113,7 +113,7 @@
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>صور slider</span>
-            <span class="label label-primary pull-left">{{App\Models\Admin::count()}}</span>
+            <span class="label label-primary pull-left">{{App\Models\Slider::count()}}</span>
           </a>
           <ul class="treeview-menu">
             <li class="{{ url()->current() == route('admin.sliders.create') ? 'active' : '' }}" ><a href="{{route('admin.sliders.create')}}"><i class="fa fa-circle-o"></i> انشاء </a></li>
@@ -126,7 +126,7 @@
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>الاشتراك</span>
-            <span class="label label-primary pull-left">{{App\Models\Admin::count()}}</span>
+            <span class="label label-primary pull-left">{{App\Models\Subscribe::count()}}</span>
           </a>
           <ul class="treeview-menu">
             <li class="{{ url()->current() == route('admin.Subscribes.index') ? 'active' : '' }}" ><a href="{{route('admin.sliders.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
