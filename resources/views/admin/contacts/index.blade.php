@@ -15,43 +15,32 @@
   </div><!-- /.box-header -->
   <div class="box-body table-responsive no-padding">
     <table class="table table-hover">
-      <tbody><tr>
-        <th>الاسم</th>
-        <th>نوع النشاط</th>
-        <th>التليفون</th>
-        <th>الايميل</th>
-        <th>طلبات العميل</th>
-        <th>العمليات</th>
-      
+      <tbody>
+       <tr>
+          <th>الاسم</th>
+          <th>نوع النشاط</th>
+          <th>التليفون</th>
+          <th>الايميل</th>
+          <th>طلبات العميل</th>
+          <th>العمليات</th>
       </tr>
       @foreach ($Contacts as  $item)
-          
-      
       <tr>
-        <td>{{$item->company_nam	}}</td>
-        <td>{{$item->activity_type}}</td>
-        <td>{{$item->number_call}}</td>
-        <td>{{$item->email}}</td>
-       
-
-        <td>
-
-         
-          @if(!empty($item->servieces))
-
-          @for($index = 0 ; $index < count($item->servieces) ;  $index++)
-          <li>{{$item->servieces[$index]}}</li>
-          @endfor
-
-          @endif
-                  
-        </td>              
-        <td>
-         
-          <a href="{{route('admin.contacts.details',$item->id)}}">عرض</a> |
-          <a href="{{route('admin.contacts.delete',$item->id)}}">حذف</a> 
-        </td>
-        
+            <td>{{$item->company_nam	}}</td>
+            <td>{{$item->activity_type}}</td>
+            <td>{{$item->number_call}}</td>
+            <td>{{$item->email}}</td>
+            <td>
+              @if(!empty($item->servieces))
+                  @for($index = 0 ; $index < count($item->servieces) ;  $index++)
+                      <li>{{$item->servieces[$index]}}</li>
+                  @endfor
+              @endif        
+            </td>              
+            <td>
+              <a href="{{route('admin.contacts.details',$item->id)}}">عرض</a> |
+              <a href="{{route('admin.contacts.delete',$item->id)}}">حذف</a> 
+            </td>
       </tr>
       @endforeach
     

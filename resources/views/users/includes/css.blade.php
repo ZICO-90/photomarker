@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/users/css/style.css">
     
     @if(app()->getLocale() == "ar")
-    <link rel="stylesheet" type="text/css" href="/users/css/style-ar.css">
+        <link rel="stylesheet" type="text/css" href="/users/css/style-ar.css">
     @else
-    <link rel="stylesheet" type="text/css" href="/users/css/style-en.css">
+        <link rel="stylesheet" type="text/css" href="/users/css/style-en.css">
     @endif

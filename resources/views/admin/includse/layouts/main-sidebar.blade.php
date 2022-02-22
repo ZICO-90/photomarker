@@ -129,7 +129,7 @@
             <span class="label label-primary pull-left">{{App\Models\Subscribe::count()}}</span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ url()->current() == route('admin.Subscribes.index') ? 'active' : '' }}" ><a href="{{route('admin.sliders.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
+            <li class="{{ url()->current() == route('admin.Subscribes.index') ? 'active' : '' }}" ><a href="{{route('admin.Subscribes.index')}}"><i class="fa fa-circle-o"></i> عرض الكل</a></li>
           </ul>
         </li>
 

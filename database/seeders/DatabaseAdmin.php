@@ -14,6 +14,8 @@ class DatabaseAdmin extends Seeder
      */
     public function run()
     {
+        #-- php artisan db:seed --class=DatabaseAdmin
+
         Admin::create([
             'name' => 'ahmed abdullah',
             'email' => 'admin@gmail.com',
