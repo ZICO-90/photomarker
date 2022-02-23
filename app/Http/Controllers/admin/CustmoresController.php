@@ -25,11 +25,10 @@ class CustmoresController extends Controller
 
     public function store(Request $re)
     {
-
-        
         $rules = [
             'title.*' => 'required|string|min:3|max:120',
-            'file.*' => 'required',
+            'files' => 'required|array',
+            'files.*' => 'required|file',
         ];
        
         $message = [
@@ -39,15 +38,25 @@ class CustmoresController extends Controller
         ];
 
        $data =  $this->validate($re,$rules,$message);
-     
+       
        $Values_Array = [];
-
-       for($index = 0 ; $index < count($data['title']) ; $index++ )
-       {
-           $file_path = Storage::disk('public')->putFile('images/cstmores',$data['file'][$index]);
-
-           array_push( $Values_Array , ['title' => $data['title'][$index]  ,'url' => $file_path , 'created_at' => Carbon::now() , 'updated_at' => Carbon::now()]);
-       }
+      
+   if(count($data['title']) ==  count($data['files']) )
+    {
+        for($index = 0 ; $index < count($data['title']) ; $index++ )
+        {
+            $file_path = Storage::disk('public')->putFile('images/cstmores',$data['files'][$index]);
+ 
+            array_push( $Values_Array , ['title' => $data['title'][$index]  ,'url' => $file_path , 'created_at' => Carbon::now() , 'updated_at' => Carbon::now()]);
+        }
+    }else
+    {
+        if(count($data['title'])  >  count($data['files'])) 
+        {
+            return redirect()->back()->with(['error' => 'من فضل ادخل الملف ']) ;
+        }
+    }
+      
 
       
 

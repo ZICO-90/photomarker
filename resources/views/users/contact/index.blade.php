@@ -128,14 +128,17 @@
                     @error('company_nam')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
+
                     <input type="text" name="activity_type" placeholder="نوع النشاط">
                     @error('activity_type')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
+
                     <input type="tel" name="number_call" placeholder="رقم التواصل">
                     @error('number_call')
                     <span class="text-danger">{{$message}}</span>
                     @enderror
+
                     <input type="email" name="email"  placeholder="البريد الإلكتروني">
                     @error('email')
                     <span class="text-danger">{{$message}}</span>
@@ -153,7 +156,7 @@
                                 <div class="box black-box margin-bottom">
                                     <div class="main-label">
                                         <label class="checkbox-holder">
-                                            <input type="checkbox"  name="service" value="{{$item->id}}" onclick="onlyOne(this)" >
+                                            <input type="checkbox"  name="service"  onclick="onlyOne(this)" >
                                             <span class="checkbox-icon"></span>
                                             <span>{{$item->name}}</span>
                                         </label>
@@ -171,12 +174,14 @@
                                        
     
                                         <label class="checkbox-holder">
-                                            <input type="checkbox" name="other[]" value="{{$index}}" >
+                                            <input type="checkbox" name="other" value="{{$item->id}}" >
                                             <span class="checkbox-icon"></span>
                                             <span> (يرجى التحديد )أخرى </span>
                                         </label>
     
-                                        <input type="text" name="other_value[{{$index}}]" placeholder="">
+                                        <input type="text" name="other_value_{{$item->id}}" placeholder="">
+                                      
+                                       
                                         
                                        
                                   

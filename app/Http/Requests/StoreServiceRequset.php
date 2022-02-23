@@ -24,13 +24,11 @@ class StoreServiceRequset extends FormRequest
     public function rules()
     {
         return [
-            'company_nam'=>'required|string|min:3:max:150',
-            'activity_type'=>'required|string|min:3:max:150',
+            'company_nam'=>'required|string|min:3|max:150',
+            'activity_type'=>'required|string|min:3|:max:150',
             'number_call'=>'required|regex:/(01)[0-9]{9}/',
             'email'=>'required|email',
             'FILES'=>'required',
-           
-
         ];
         
     } #-- end rules

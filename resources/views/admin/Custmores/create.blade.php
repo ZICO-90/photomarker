@@ -16,7 +16,7 @@ $(add_button).click(function(e){ //on add input button click
 e.preventDefault();
     if(x < max_fields){ //max input box allowed
         x++; //text box increment
-        $(wrapper).append('<div class="form-group">  <input type="text" class="form-control input-lg"  name="title[]" >  <input type="file" class="form-control input-lg" name="file[]" >  <div class="input-group-append"><button class="btn btn-outline-danger remove_field" type="button">Remove</button></div></div>'); //add input box
+        $(wrapper).append('<div class="form-group">  <input type="text" class="form-control input-lg"  name="title[]" >  <input type="file" class="form-control input-lg" name="files[]" >  <div class="input-group-append"><button class="btn btn-outline-danger remove_field" type="button">Remove</button></div></div>'); //add input box
     }
 });
 
@@ -53,8 +53,11 @@ $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
             </div>
 
             <div class="box-body">
-              <input type="file" class="form-control input-lg"  name="file[]" >
-              @error('file.*')
+              <input type="file" class="form-control input-lg"  name="files[]" >
+              @error('files')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+              @error('files.*')
               <span class="text-danger">{{$message}}</span>
               @enderror
               <br>

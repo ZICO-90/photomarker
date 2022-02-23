@@ -24,7 +24,8 @@ class DataBaseSiteSerives extends Seeder
     public function file()
     {
         //images/site-setting/ujQcKY1z27J0CzFYiUIO3mG8jhw8DHCuW8TbjvMT.pdf
-        //php artisan db:seed --class=DataBaseSiteSerives
+        
+        // php artisan db:seed --class=DataBaseSiteSerives
         $path =  public_path('Files') ;
         $File =  \Illuminate\Support\Facades\File::Files($path)[0];
         $file_path = Storage::disk('public')->putFile('images/site-setting',new File($File));

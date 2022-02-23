@@ -11,7 +11,6 @@ class ContactsController extends Controller
     public function index()
     {
         $Contacts =  Contact::get();
-  //dd(count($Contacts[2]->servieces));
         return view('admin.contacts.index',compact('Contacts')) ;
     }
 

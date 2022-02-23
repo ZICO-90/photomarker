@@ -22,10 +22,11 @@ class ContactController extends Controller
 
    public function store(StoreServiceRequset $request)
    {
-
+      
+ 
       if(empty($request->Type_services) ){
 
-         if(empty($request->other))
+         if(!$request->has('other'))
          {
             return redirect()->back()->with(['error' => 'اختار خدمه علي الافل']);
          } 
@@ -34,14 +35,17 @@ class ContactController extends Controller
     
       if($request->has('FILES'))
       {
-         $file_path = Storage::disk('public')->putFile('images/contacts',$request->FILES);
-         $request->FILES = $file_path; 
+        // $file_path = Storage::disk('public')->putFile('images/contacts',$request->FILES);
+        // $request->FILES = $file_path; 
       }
     
-     
+    
     
       if($request->has('other')){
         
+         if(empty($request['other_value_'.$request->other]) )
+         return redirect()->back()->with(['error' => 'من فضلك اكتب البيانات التي تريدها']);
+
         $services = [] ;
         if(!empty($request['Type_services']))
         {
@@ -52,7 +56,7 @@ class ContactController extends Controller
             }
         }
 
-        array_push($services , $request->other_value[$request->other[0]]);
+        array_push($services , $request['other_value_'.$request->other]);
         
         $request['Type_services'] = $services;
       }
